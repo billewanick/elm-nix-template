@@ -1,0 +1,86 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #fff1e5;
+  font-size: 20px;
+  color: #070707;
+  margin: 0px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0em 0em 1em 0em;
+}
+
+a {
+  color: #070707;
+  border-bottom: 1px dashed #070707;
+  padding-bottom: 0px;
+  text-decoration: none;
+  transition: padding 0.25s;
+}
+
+a:hover {
+  padding-bottom: 2px;
+}
+
+#hwaet {
+  padding: 2em;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#controls {
+  display: flex
+}
+
+.control {
+  margin-right: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: .35em;
+  background: #070707;
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 1.1em;
+  width: 1.1em;
+  border-radius: 50%;
+  background: #070707;
+  margin-top: -4px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+#footer {
+  font-size: 0.8em;
+}
