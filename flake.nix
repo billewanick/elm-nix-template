@@ -11,6 +11,47 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         debugMode = false;
+
+        # These strings are specified this way so they aren't changed by sed
+        # Only the above `debugMode` variable is rewritten
+        # TODO: Fix this to be less hacky
+        isDebugMode = "debugMode = ${"true"};";
+        notDebugMode = "debugMode = ${"false"};";
+
+        scripts = with pkgs; [
+          (writeScriptBin "run-static" ''
+            nix build
+            firefox result/index.html
+          '')
+
+          (writeScriptBin "run-live" ''
+            pkill elm-live
+            elm-live src/Main.elm --open
+          '')
+
+          (writeScriptBin "update-deps" ''
+            elm2nix convert  > nix/elm-srcs.nix
+            elm2nix snapshot
+            mv registry.dat nix
+          '')
+
+          (writeScriptBin "install-elm-dep" ''
+            elm install $1
+            update-deps
+          '')
+
+          # Replace debugMode variable from true to false
+          (writeScriptBin "build" ''
+            sed -i 's/${isDebugMode}/${notDebugMode}/' flake.nix
+            nix build
+          '')
+
+          # Replace debugMode variable from false to true
+          (writeScriptBin "dev" ''
+            sed -i 's/${notDebugMode}/${isDebugMode}/' flake.nix
+            nix build
+          '')
+        ];
       in
       {
         packages.elm-nix-template = pkgs.stdenv.mkDerivation {
@@ -70,7 +111,8 @@
               elmPackages.elm-language-server
 
               elm2nix
-            ];
+            ] ++
+            scripts;
         };
       });
 }
