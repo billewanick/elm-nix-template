@@ -5,14 +5,29 @@
         version = "1.0.2";
       };
 
+      "elm/bytes" = {
+        sha256 = "02ywbf52akvxclpxwj9n04jydajcbsbcbsnjs53yjc5lwck3abwj";
+        version = "1.0.8";
+      };
+
       "elm/core" = {
         sha256 = "19w0iisdd66ywjayyga4kv2p1v9rxzqjaxhckp8ni6n8i0fb2dvf";
+        version = "1.0.5";
+      };
+
+      "elm/file" = {
+        sha256 = "1rljcb41dl97myidyjih2yliyzddkr2m7n74x7gg46rcw4jl0ny8";
         version = "1.0.5";
       };
 
       "elm/html" = {
         sha256 = "1n3gpzmpqqdsldys4ipgyl1zacn0kbpc3g4v3hdpiyfjlgh8bf3k";
         version = "1.0.0";
+      };
+
+      "elm/http" = {
+        sha256 = "008bs76mnp48b4dw8qwjj4fyvzbxvlrl4xpa2qh1gg2kfwyw56v1";
+        version = "2.0.0";
       };
 
       "elm/json" = {
