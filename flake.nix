@@ -2,7 +2,7 @@
   description = "Template for an Elm app defined by a Nix flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOs/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     utils.url = "github:numtide/flake-utils";
   };
 
